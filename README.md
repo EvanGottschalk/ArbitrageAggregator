@@ -69,13 +69,9 @@
 ### Built With
 
 * `Python 3.6`
-
 * `web3`
-
 * `json`
-
 * `pandas`
-
 * `DEXcalculator` - This program uses API calls to fetch decentralized exchange balances, which are then used to calculate prices of tokens.
 
 
@@ -96,7 +92,10 @@ Running `ArbitrageAggregator` requires the `pandas`, `json` and `web3` libraries
   1b. Next, create a blank app using the "+CREATE APP" button (the app's particular parameters are not relevant to `ArbitrageAggregator`).
   1c. That's it! The new API key will be displayed on the [Alchemy](https://www.alchemy.com/) dashboard.
 
-2. Install the `pandas`, `json` and `web3` libraries, which are listed in `requirements.txt`. The easiest way to do this is with `pip`.
+2. Install the `pandas`, `json` and `web3` libraries, which are listed in `requirements.txt`. The easiest way to do this is with `pip`:
+    ```
+    pip install -r requirements.txt
+    ```
 
 3. Download the `.py` files from this repository (`ArbitrageAggregator.py` and `DEXcalculator.py`)
 
