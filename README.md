@@ -72,7 +72,7 @@
 * `web3`
 * `json`
 * `pandas`
-* `DEXcalculator` - This program uses API calls to fetch decentralized exchange balances, which are then used to calculate prices of tokens.
+* [`DEXcalculator`](https://github.com/EvanGottschalk/DEXcalculator) - This program uses API calls to fetch decentralized exchange balances, which are then used to calculate prices of tokens.
 
 
 <!-- GETTING STARTED -->
