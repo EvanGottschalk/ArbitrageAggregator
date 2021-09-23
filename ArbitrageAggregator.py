@@ -125,7 +125,7 @@ class ArbitrageAggregator:
         #1) This while loop will repetitively use checkForArbitrage() to collect data on potential arbitrage opportunities across exchanges
         #   The loop will run indefinitely until keyboard interrupt or an error
         while collect_data:
-##            try:
+            try:
                 arbitrage_dataframe = self.checkForArbitrage(token_A, token_B, max_spent_amount, min_spent_amount, digit_granularity, silent_mode=True)
                 new_statistics_entry = {}
                 for buy_exchange in self.exchangeBalances:
@@ -151,12 +151,12 @@ class ArbitrageAggregator:
                 new_statistics_entry['Block Number'] = latest_block_number
                 arbitrage_statistics_list.append(new_statistics_entry)
                 print('Loop Count: ' + str(len(arbitrage_statistics_list)))
-##            except KeyboardInterrupt as error:
-##                print('\nEnding Arbitrage Detection Loop...')
-##                collect_data = False
-##            except Exception as error:
-##                print('\nERROR! Arbitrage Detection Loop ended due to unexpected error: ' + str(error))
-##                collect_data = False
+            except KeyboardInterrupt as error:
+                print('\nEnding Arbitrage Detection Loop...')
+                collect_data = False
+            except Exception as error:
+                print('\nERROR! Arbitrage Detection Loop ended due to unexpected error: ' + str(error))
+                collect_data = False
 
         #4) In the case of keyboard interruption or an unintentional error, arbitrage_statistics_dataframe is converted to a DataFrame and exported to CSV
         arbitrage_statistics_dataframe = pd.DataFrame(arbitrage_statistics_list, columns=list(new_statistics_entry))
