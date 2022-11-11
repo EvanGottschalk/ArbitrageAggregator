@@ -174,3 +174,28 @@ class ArbitrageAggregator:
                          str(date_time[4]) + '-' + '0'*(2-len(str(date_time[5]))) + str(date_time[5]) + '.csv'
         data.to_csv(full_file_name)
         return(full_file_name)
+
+    def startLoop(self, defaults=False):
+        if defaults:
+            token_A = 'WETH'
+            token_B = 'DAI'
+            max_spent_amount = 100000
+            min_spent_amount = .000001
+            digit_granularity = 3
+        else:
+            
+            # >>> WETH
+            token_A = input('\nPlease enter the first token you would like to arbitrage:\nToken Symbol: ')
+            # >>> DAI
+            token_B = input('\nPlease enter the second token you would like to arbitrage:\nToken Symbol: ')
+            # >>> 100000
+            max_spent_amount = input('\nPlease enter the maxiumum amount of $USD you are willing to spend on a trade:\nMaximum Spent Amount: ')
+            # >>> .00001
+            min_spent_amount = input('\nPlease enter the minumum amount of $USD you are willing to spend on a trade:\nMinimum Spent Amount: ')
+            # >>> 3
+            digit_granularity = input('\nPlease enter the depth of digit variance you want the detector to try:\nDigit Granularity: ')
+        self.loopArbitrageDetection(token_A, token_B, max_spent_amount, min_spent_amount, digit_granularity)
+
+AA = ArbitrageAggregator()
+AA.startLoop(defaults=False)
+        

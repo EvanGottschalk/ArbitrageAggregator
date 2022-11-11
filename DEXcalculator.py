@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+import os
 from web3 import Web3
 import json
 
@@ -18,6 +21,8 @@ class DEXcalculator:
 
     def connectToWeb3(self, api_url=None):
         self.connected = False
+        if os.path.isfile('.env'):
+            api_url = os.getenv('ALCHEMY_API_URL')
         while not(self.connected):
             self.web3_object = Web3(Web3.HTTPProvider(api_url))
             if self.web3_object.isConnected():
